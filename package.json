@@ -4,7 +4,8 @@
   "description": "JobVault Job Application Tracker",
   "main": "index.js",
   "scripts": {
-    "start": "json-server --host 0.0.0.0 --port $PORT --no-static db.json"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js"
   },
   "keywords": [
     "job",
@@ -14,8 +15,5 @@
   ],
   "author": "JobVault",
   "license": "ISC",
-  "type": "commonjs",
-  "dependencies": {
-    "json-server": "^1.0.0-beta.15"
-  }
+  "type": "commonjs"
 }

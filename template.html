@@ -2,1509 +2,645 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JobVault - Choose Resume Template</title>
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-        rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
-
         * {
             box-sizing: border-box;
         }
 
-
         body {
-
             background: #f8f8f8;
-
             min-height: 100vh;
-
             padding-top: 72px;
-
         }
-
-
-        /* ================= NAVBAR ================= */
 
         .navbar {
-
             min-height: 72px;
-
             position: fixed !important;
-
             top: 0;
-
             left: 0;
-
             width: 100%;
-
             z-index: 1030;
-
             background: #000 !important;
-
         }
-
 
         .navbar-brand {
-
             font-size: 22px;
-
             letter-spacing: 1px;
-
         }
-
 
         .nav-link {
-
             font-size: 14px;
-
             margin: 0 7px;
-
         }
-
-
-        .nav-link:hover {
-
-            opacity: 0.7;
-
-        }
-
-
-        .navbar .btn {
-
-            border-radius: 8px;
-
-        }
-
-
-        /* ================= MAIN ================= */
 
         .template-section {
-
             padding: 60px 0 75px;
-
         }
-
-
-        /* ================= PAGE HEADER ================= */
 
         .page-header {
-
             text-align: center;
-
             max-width: 750px;
-
             margin: 0 auto 55px;
-
         }
-
 
         .page-badge {
-
             display: inline-block;
-
             padding: 7px 17px;
-
             border: 1px solid #000;
-
             border-radius: 30px;
-
             font-size: 11px;
-
             font-weight: 700;
-
             letter-spacing: 2px;
-
         }
-
 
         .page-header h1 {
-
             font-size: 42px;
-
             font-weight: 700;
-
             margin-top: 20px;
-
             margin-bottom: 15px;
-
         }
-
 
         .page-header p {
-
             color: #777;
-
             font-size: 16px;
-
             line-height: 1.7;
-
-            margin: 0 auto;
-
         }
-
-
-        /* ================= TEMPLATE CARD ================= */
 
         .template-card {
-
             border: none;
-
             border-radius: 16px;
-
             background: white;
-
             overflow: hidden;
-
             height: 100%;
-
-            transition:
-                transform 0.25s ease,
-                box-shadow 0.25s ease;
-
+            transition: transform .25s ease, box-shadow .25s ease;
         }
-
 
         .template-card:hover {
-
             transform: translateY(-6px);
-
-            box-shadow:
-                0 18px 40px rgba(0, 0, 0, 0.10) !important;
-
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .1);
         }
-
-
-        /* ================= TEMPLATE DETAILS ================= */
 
         .template-details {
-
             padding: 25px 25px 20px;
-
-            border-bottom: 1px solid #eeeeee;
-
+            border-bottom: 1px solid #eee;
         }
-
 
         .template-top {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             margin-bottom: 14px;
-
         }
-
 
         .template-number {
-
             width: 42px;
-
             height: 42px;
-
             border-radius: 50%;
-
             background: #000;
-
             color: white;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             font-size: 13px;
-
             font-weight: 700;
-
         }
-
 
         .template-type {
-
             font-size: 11px;
-
             font-weight: 700;
-
             letter-spacing: 1px;
-
             text-transform: uppercase;
-
             color: #777;
-
         }
-
 
         .template-details h2 {
-
             font-size: 24px;
-
             font-weight: 700;
-
             margin-bottom: 8px;
-
         }
-
 
         .template-description {
-
             color: #777;
-
             font-size: 14px;
-
             line-height: 1.6;
-
             margin-bottom: 18px;
-
         }
-
-
-        /* ================= TEMPLATE FEATURES ================= */
 
         .template-features {
-
             display: flex;
-
             flex-wrap: wrap;
-
             gap: 8px;
-
         }
-
 
         .feature {
-
             border: 1px solid #ddd;
-
             border-radius: 20px;
-
             padding: 6px 11px;
-
             font-size: 11px;
-
             color: #555;
-
             background: #fafafa;
-
         }
-
-
-        /* ================= PREVIEW ================= */
 
         .template-preview {
-
             height: 330px;
-
-            background: #eeeeee;
-
+            background: #eee;
             overflow: hidden;
-
             position: relative;
-
         }
-
 
         .preview-paper {
-
             width: 78%;
-
             height: 88%;
-
             background: white;
-
             position: absolute;
-
             left: 11%;
-
             top: 6%;
-
-            box-shadow:
-                0 8px 25px rgba(0, 0, 0, 0.12);
-
+            box-shadow: 0 8px 25px rgba(0, 0, 0, .12);
             padding: 22px;
-
             overflow: hidden;
-
         }
 
-
-        /* Template 1 Preview */
-
-        .preview-one .preview-name {
-
-            font-size: 20px;
-
+        .preview-name {
+            font-size: 19px;
             font-weight: 700;
-
-            border-bottom: 2px solid #000;
-
             padding-bottom: 8px;
-
+            border-bottom: 2px solid #111;
         }
 
-
-        .preview-one .preview-line {
-
+        .preview-line {
             height: 5px;
-
             background: #ddd;
-
-            margin-top: 10px;
-
+            margin-top: 12px;
             width: 90%;
-
         }
 
-
-        .preview-one .preview-small {
-
+        .preview-small {
             height: 4px;
-
             background: #e3e3e3;
-
-            margin-top: 7px;
-
+            margin-top: 8px;
             width: 70%;
-
         }
 
-
-        /* Template 2 Preview */
-
-        .preview-two {
-
+        .preview-two,
+        .preview-four {
             display: flex;
-
             padding: 0;
-
         }
 
-
-        .preview-two .preview-sidebar {
-
+        .preview-sidebar {
             width: 32%;
-
             background: #111;
-
             height: 100%;
-
         }
 
-
-        .preview-two .preview-content {
-
+        .preview-content {
             width: 68%;
-
             padding: 20px;
-
         }
 
-
-        .preview-two .preview-name {
-
-            font-size: 17px;
-
-            font-weight: 700;
-
+        .preview-four .preview-sidebar {
+            width: 35%;
         }
 
-
-        .preview-two .preview-line {
-
-            height: 4px;
-
-            background: #ddd;
-
-            margin-top: 10px;
-
-            width: 85%;
-
+        .preview-four .preview-content {
+            width: 65%;
         }
-
-
-        /* Template 3 Preview */
 
         .preview-three .preview-name {
-
             text-align: center;
-
-            font-size: 19px;
-
-            font-weight: 700;
-
-            padding-bottom: 10px;
-
             border-bottom: 1px solid #ccc;
-
         }
-
 
         .timeline {
-
             border-left: 3px solid #111;
-
             margin: 18px 0 0 15px;
-
             padding-left: 20px;
-
         }
-
 
         .timeline-line {
-
             height: 35px;
-
             border-bottom: 4px solid #ddd;
-
             margin-bottom: 12px;
-
             width: 90%;
-
         }
-
-
-        /* Template 4 Preview */
-
-        .preview-four {
-
-            display: flex;
-
-            padding: 0;
-
-        }
-
-
-        .preview-four .preview-dark {
-
-            width: 35%;
-
-            background: #111;
-
-            height: 100%;
-
-        }
-
-
-        .preview-four .preview-right {
-
-            width: 65%;
-
-            padding: 20px;
-
-        }
-
-
-        .preview-four .preview-name {
-
-            font-size: 18px;
-
-            font-weight: 700;
-
-        }
-
-
-        .preview-four .preview-line {
-
-            height: 4px;
-
-            background: #ddd;
-
-            margin-top: 10px;
-
-            width: 88%;
-
-        }
-
-
-        /* ================= CARD FOOTER ================= */
 
         .template-footer {
-
             padding: 20px 25px 25px;
-
         }
-
 
         .best-for {
-
             font-size: 12px;
-
             color: #777;
-
             margin-bottom: 15px;
-
         }
-
 
         .best-for strong {
-
             color: #111;
-
         }
-
 
         .use-template-btn {
-
             border-radius: 8px;
-
             padding: 10px 22px;
-
         }
 
-
-        /* ================= FOOTER ================= */
+        .use-template-btn:disabled {
+            opacity: .6;
+            cursor: wait;
+        }
 
         footer {
-
             background: #000;
-
             color: white;
-
             padding: 40px 0 22px;
-
         }
-
 
         .footer-brand {
-
             font-size: 20px;
-
             font-weight: 700;
-
         }
-
 
         .footer-text {
-
             color: #777;
-
             font-size: 13px;
-
             margin-top: 8px;
-
         }
-
 
         .copyright {
-
-            color: #555;
-
+            color: #777;
             font-size: 12px;
-
             margin-top: 25px;
-
         }
-
-
-        /* ================= RESPONSIVE ================= */
 
         @media (max-width: 768px) {
-
             .template-section {
-
                 padding: 40px 0 55px;
-
             }
-
 
             .page-header {
-
                 margin-bottom: 40px;
-
             }
-
 
             .page-header h1 {
-
                 font-size: 32px;
-
             }
-
 
             .page-header p {
-
                 font-size: 14px;
-
             }
-
 
             .template-preview {
-
                 height: 300px;
-
             }
-
         }
-
 
         @media (max-width: 480px) {
-
             .page-header h1 {
-
                 font-size: 28px;
-
             }
-
 
             .template-details {
-
                 padding: 20px;
-
             }
-
 
             .template-details h2 {
-
                 font-size: 21px;
-
             }
-
 
             .template-footer {
-
                 padding: 18px 20px 22px;
-
             }
-
 
             .template-preview {
-
                 height: 270px;
-
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
-    <!-- ================= NAVBAR ================= -->
-
     <nav class="navbar navbar-expand-lg navbar-dark">
-
         <div class="container">
+            <a class="navbar-brand fw-bold" href="index.html">JobVault</a>
 
-
-            <a
-                class="navbar-brand fw-bold"
-                href="index.html">
-
-                JobVault
-
-            </a>
-
-
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarContent">
-
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
                 <span class="navbar-toggler-icon"></span>
-
             </button>
 
-
-            <div
-                class="collapse navbar-collapse"
-                id="navbarContent">
-
-
+            <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav mx-auto">
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link text-white"
-                            href="index.html">
-
-                            Home
-
-                        </a>
-
+                        <a class="nav-link text-white" href="index.html">Home</a>
                     </li>
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link text-white"
-                            href="applications.html">
-
-                            Applications
-
-                        </a>
-
+                        <a class="nav-link text-white" href="applications.html">Applications</a>
                     </li>
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link text-white active"
-                            href="resume_builder.html">
-
-                            Resume Builder
-
-                        </a>
-
+                        <a class="nav-link text-white active" href="resume_builder.html">Resume Builder</a>
                     </li>
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link text-white"
-                            href="home.html">
-
-                            Dashboard
-
-                        </a>
-
+                        <a class="nav-link text-white" href="home.html">Dashboard</a>
                     </li>
-
-
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="my_resumes.html">
+                            My Resumes
+                        </a>
+                    </li>
                 </ul>
 
-
-                <div class="d-flex">
-
-                    <button
-                        class="btn btn-outline-light btn-sm px-3"
-                        onclick="handleLogout()">
-
-                        Logout
-
-                    </button>
-
-                </div>
-
-
+                <button class="btn btn-outline-light btn-sm px-3" onclick="handleLogout()">Logout</button>
             </div>
-
         </div>
-
     </nav>
 
-
-
-    <!-- ================= MAIN ================= -->
-
     <main>
-
         <section class="template-section">
-
             <div class="container">
 
-
-                <!-- PAGE HEADER -->
-
                 <div class="page-header">
-
-                    <div class="page-badge">
-
-                        RESUME BUILDER
-
-                    </div>
-
-
-                    <h1>
-
-                        Choose Your Perfect Resume
-
-                    </h1>
-
-
-                    <p>
-
-                        Select a professional template designed
-                        to highlight your skills, experience and
-                        career journey. Each template is crafted
-                        for a different professional style.
-
-                    </p>
-
+                    <div class="page-badge">RESUME BUILDER</div>
+                    <h1>Choose Your Perfect Resume</h1>
+                    <p>Select a professional template designed to highlight your
+                        skills, experience and career journey. Each template is
+                        crafted for a different professional style.</p>
                 </div>
-
-
-
-                <!-- ================= TEMPLATES ================= -->
 
                 <div class="row g-4">
 
-
-                    <!-- ================= TEMPLATE 1 ================= -->
-
+                    <!-- TEMPLATE 1 -->
                     <div class="col-12 col-lg-6">
-
-                        <div
-                            class="template-card shadow-sm">
-
-
-                            <!-- DETAILS -->
-
+                        <div class="template-card shadow-sm">
                             <div class="template-details">
-
-
                                 <div class="template-top">
-
-                                    <div class="template-number">
-
-                                        01
-
-                                    </div>
-
-
-                                    <div class="template-type">
-
-                                        Clean & Professional
-
-                                    </div>
-
+                                    <div class="template-number">01</div>
+                                    <div class="template-type">Clean &amp; Professional</div>
                                 </div>
-
-
-                                <h2>
-
-                                    Classic Professional
-
-                                </h2>
-
-
+                                <h2>Classic Professional</h2>
                                 <p class="template-description">
-
-                                    A clean and straightforward
-                                    resume layout that focuses on
-                                    your experience, education and
-                                    skills without unnecessary
-                                    distractions.
-
+                                    A clean and straightforward resume layout
+                                    focused on your experience, education and skills.
                                 </p>
-
-
                                 <div class="template-features">
-
-                                    <span class="feature">
-                                        Clean Layout
-                                    </span>
-
-                                    <span class="feature">
-                                        ATS Friendly
-                                    </span>
-
-                                    <span class="feature">
-                                        Professional
-                                    </span>
-
+                                    <span class="feature">Clean Layout</span>
+                                    <span class="feature">ATS Friendly</span>
+                                    <span class="feature">Professional</span>
                                 </div>
-
-
                             </div>
-
-
-
-                            <!-- PREVIEW -->
 
                             <div class="template-preview">
-
-                                <div
-                                    class="preview-paper preview-one">
-
-                                    <div class="preview-name">
-
-                                        YOUR NAME
-
-                                    </div>
-
+                                <div class="preview-paper">
+                                    <div class="preview-name">YOUR NAME</div>
                                     <div class="preview-line"></div>
-
                                     <div class="preview-small"></div>
-
                                     <div class="preview-line"></div>
-
                                     <div class="preview-small"></div>
-
                                     <div class="preview-small"></div>
-
                                     <div class="preview-line"></div>
-
                                     <div class="preview-small"></div>
-
                                     <div class="preview-small"></div>
-
                                     <div class="preview-line"></div>
-
-                                    <div class="preview-small"></div>
-
                                 </div>
-
                             </div>
-
-
-
-                            <!-- FOOTER -->
 
                             <div class="template-footer">
-
-                                <div class="best-for">
-
-                                    <strong>
-                                        Best for:
-                                    </strong>
-
-                                    Students, freshers,
-                                    software developers and
-                                    corporate professionals.
-
-                                </div>
-
-
-                                <a
-                                    href="Template1.html"
-                                    class="btn btn-dark use-template-btn">
-
+                                <div class="best-for"><strong>Best for:</strong>
+                                    Students, freshers and corporate professionals.</div>
+                                <button type="button" class="btn btn-dark use-template-btn"
+                                    onclick="selectTemplate('Template1', this)">
                                     Use Template
-
-                                </a>
-
+                                </button>
                             </div>
-
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- ================= TEMPLATE 2 ================= -->
-
+                    <!-- TEMPLATE 2 -->
                     <div class="col-12 col-lg-6">
-
-                        <div
-                            class="template-card shadow-sm">
-
-
-                            <!-- DETAILS -->
-
+                        <div class="template-card shadow-sm">
                             <div class="template-details">
-
-
                                 <div class="template-top">
-
-                                    <div class="template-number">
-
-                                        02
-
-                                    </div>
-
-
-                                    <div class="template-type">
-
-                                        Modern & Minimal
-
-                                    </div>
-
+                                    <div class="template-number">02</div>
+                                    <div class="template-type">Modern &amp; Bold</div>
                                 </div>
-
-
-                                <h2>
-
-                                    Modern Minimal
-
-                                </h2>
-
-
+                                <h2>Modern Sidebar</h2>
                                 <p class="template-description">
-
-                                    A contemporary design with a
-                                    strong visual structure and
-                                    sidebar layout that keeps
-                                    important information easy to
-                                    find.
-
+                                    A modern two-column layout that gives skills
+                                    and contact information a distinct sidebar.
                                 </p>
-
-
                                 <div class="template-features">
-
-                                    <span class="feature">
-                                        Modern
-                                    </span>
-
-                                    <span class="feature">
-                                        Two Section
-                                    </span>
-
-                                    <span class="feature">
-                                        Minimal
-                                    </span>
-
+                                    <span class="feature">Two Columns</span>
+                                    <span class="feature">Modern</span>
+                                    <span class="feature">Distinctive</span>
                                 </div>
-
-
                             </div>
 
-
-
-                            <!-- PREVIEW -->
-
                             <div class="template-preview">
-
-                                <div
-                                    class="preview-paper preview-two">
-
+                                <div class="preview-paper preview-two">
                                     <div class="preview-sidebar"></div>
-
-
                                     <div class="preview-content">
-
-                                        <div class="preview-name">
-
-                                            YOUR NAME
-
-                                        </div>
-
+                                        <div class="preview-name">YOUR NAME</div>
                                         <div class="preview-line"></div>
-
+                                        <div class="preview-small"></div>
                                         <div class="preview-line"></div>
-
+                                        <div class="preview-small"></div>
                                         <div class="preview-line"></div>
-
-                                        <div class="preview-line"></div>
-
-                                        <div class="preview-line"></div>
-
-                                        <div class="preview-line"></div>
-
+                                        <div class="preview-small"></div>
                                     </div>
-
                                 </div>
-
                             </div>
-
-
-
-                            <!-- FOOTER -->
 
                             <div class="template-footer">
-
-                                <div class="best-for">
-
-                                    <strong>
-                                        Best for:
-                                    </strong>
-
-                                    Designers, developers,
-                                    creative professionals and
-                                    modern job applications.
-
-                                </div>
-
-
-                                <a
-                                    href="Template2.html"
-                                    class="btn btn-dark use-template-btn">
-
+                                <div class="best-for"><strong>Best for:</strong>
+                                    Developers, designers and technology professionals.</div>
+                                <button type="button" class="btn btn-dark use-template-btn"
+                                    onclick="selectTemplate('Template2', this)">
                                     Use Template
-
-                                </a>
-
+                                </button>
                             </div>
-
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- ================= TEMPLATE 3 ================= -->
-
+                    <!-- TEMPLATE 3 -->
                     <div class="col-12 col-lg-6">
-
-                        <div
-                            class="template-card shadow-sm">
-
-
-                            <!-- DETAILS -->
-
+                        <div class="template-card shadow-sm">
                             <div class="template-details">
-
-
                                 <div class="template-top">
-
-                                    <div class="template-number">
-
-                                        03
-
-                                    </div>
-
-
-                                    <div class="template-type">
-
-                                        Creative & Structured
-
-                                    </div>
-
+                                    <div class="template-number">03</div>
+                                    <div class="template-type">Minimal &amp; Elegant</div>
                                 </div>
-
-
-                                <h2>
-
-                                    Career Timeline
-
-                                </h2>
-
-
+                                <h2>Elegant Timeline</h2>
                                 <p class="template-description">
-
-                                    A structured timeline-inspired
-                                    resume that visually presents
-                                    your career journey, experience
-                                    and education.
-
+                                    A structured, minimal design that presents
+                                    education and experience in an organized layout.
                                 </p>
-
-
                                 <div class="template-features">
-
-                                    <span class="feature">
-                                        Timeline
-                                    </span>
-
-                                    <span class="feature">
-                                        Structured
-                                    </span>
-
-                                    <span class="feature">
-                                        Unique
-                                    </span>
-
+                                    <span class="feature">Minimal</span>
+                                    <span class="feature">Organized</span>
+                                    <span class="feature">Elegant</span>
                                 </div>
-
-
                             </div>
 
-
-
-                            <!-- PREVIEW -->
-
                             <div class="template-preview">
-
-                                <div
-                                    class="preview-paper preview-three">
-
-                                    <div class="preview-name">
-
-                                        YOUR NAME
-
-                                    </div>
-
-
+                                <div class="preview-paper preview-three">
+                                    <div class="preview-name">YOUR NAME</div>
                                     <div class="timeline">
-
                                         <div class="timeline-line"></div>
-
                                         <div class="timeline-line"></div>
-
                                         <div class="timeline-line"></div>
-
-                                        <div class="timeline-line"></div>
-
-                                        <div class="timeline-line"></div>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
-
-
-                            <!-- FOOTER -->
 
                             <div class="template-footer">
-
-                                <div class="best-for">
-
-                                    <strong>
-                                        Best for:
-                                    </strong>
-
-                                    Professionals with
-                                    internships, multiple roles
-                                    or strong career progression.
-
-                                </div>
-
-
-                                <a
-                                    href="Template3.html"
-                                    class="btn btn-dark use-template-btn">
-
+                                <div class="best-for"><strong>Best for:</strong>
+                                    Graduates, students and experienced applicants.</div>
+                                <button type="button" class="btn btn-dark use-template-btn"
+                                    onclick="selectTemplate('Template3', this)">
                                     Use Template
-
-                                </a>
-
+                                </button>
                             </div>
-
-
                         </div>
-
                     </div>
 
-
-
-                    <!-- ================= TEMPLATE 4 ================= -->
-
+                    <!-- TEMPLATE 4 -->
                     <div class="col-12 col-lg-6">
-
-                        <div
-                            class="template-card shadow-sm">
-
-
-                            <!-- DETAILS -->
-
+                        <div class="template-card shadow-sm">
                             <div class="template-details">
-
-
                                 <div class="template-top">
-
-                                    <div class="template-number">
-
-                                        04
-
-                                    </div>
-
-
-                                    <div class="template-type">
-
-                                        Executive & Premium
-
-                                    </div>
-
+                                    <div class="template-number">04</div>
+                                    <div class="template-type">Executive &amp; Premium</div>
                                 </div>
-
-
-                                <h2>
-
-                                    Executive Two-Column
-
-                                </h2>
-
-
+                                <h2>Executive Profile</h2>
                                 <p class="template-description">
-
-                                    A strong two-column design that
-                                    separates your personal profile
-                                    from your professional experience
-                                    for a premium appearance.
-
+                                    A bold design with a dark sidebar and clear
+                                    content sections for a polished professional profile.
                                 </p>
-
-
                                 <div class="template-features">
-
-                                    <span class="feature">
-                                        Premium
-                                    </span>
-
-                                    <span class="feature">
-                                        Two Column
-                                    </span>
-
-                                    <span class="feature">
-                                        Executive
-                                    </span>
-
+                                    <span class="feature">Premium</span>
+                                    <span class="feature">Structured</span>
+                                    <span class="feature">Bold Design</span>
                                 </div>
-
-
                             </div>
-
-
-
-                            <!-- PREVIEW -->
 
                             <div class="template-preview">
-
-                                <div
-                                    class="preview-paper preview-four">
-
-                                    <div class="preview-dark"></div>
-
-
-                                    <div class="preview-right">
-
-                                        <div class="preview-name">
-
-                                            YOUR NAME
-
-                                        </div>
-
+                                <div class="preview-paper preview-four">
+                                    <div class="preview-sidebar"></div>
+                                    <div class="preview-content">
+                                        <div class="preview-name">YOUR NAME</div>
                                         <div class="preview-line"></div>
-
+                                        <div class="preview-small"></div>
                                         <div class="preview-line"></div>
-
+                                        <div class="preview-small"></div>
                                         <div class="preview-line"></div>
-
-                                        <div class="preview-line"></div>
-
-                                        <div class="preview-line"></div>
-
-                                        <div class="preview-line"></div>
-
                                     </div>
-
                                 </div>
-
                             </div>
-
-
-
-                            <!-- FOOTER -->
 
                             <div class="template-footer">
-
-                                <div class="best-for">
-
-                                    <strong>
-                                        Best for:
-                                    </strong>
-
-                                    Experienced professionals,
-                                    managers and leadership-level
-                                    applications.
-
-                                </div>
-
-
-                                <a
-                                    href="Template4.html"
-                                    class="btn btn-dark use-template-btn">
-
+                                <div class="best-for"><strong>Best for:</strong>
+                                    Professionals seeking a distinctive resume style.</div>
+                                <button type="button" class="btn btn-dark use-template-btn"
+                                    onclick="selectTemplate('Template4', this)">
                                     Use Template
-
-                                </a>
-
+                                </button>
                             </div>
-
-
                         </div>
-
                     </div>
-
 
                 </div>
-
             </div>
-
         </section>
-
     </main>
 
-
-
-    <!-- ================= FOOTER ================= -->
-
     <footer>
-
         <div class="container">
-
-
-            <div class="footer-brand">
-
-                JobVault
-
-            </div>
-
-
-            <div class="footer-text">
-
-                Build your professional resume with JobVault.
-
-            </div>
-
-
-            <div class="copyright">
-
-                © 2026 JobVault. All rights reserved.
-
-            </div>
-
-
+            <div class="footer-brand">JobVault</div>
+            <div class="footer-text">Build your professional resume with JobVault.</div>
+            <div class="copyright">© 2026 JobVault. All rights reserved.</div>
         </div>
-
     </footer>
 
-
-
-    <!-- ================= AUTHENTICATION ================= -->
-
     <script>
+        const currentUser = JSON.parse(
+            sessionStorage.getItem("currentUser") || "null"
+        );
 
-        let currentUser =
-            JSON.parse(
-                sessionStorage.getItem("currentUser")
-            );
+        const isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
-
-        let isLoggedIn =
-            sessionStorage.getItem("isLoggedIn");
-
-
-        if (
-            isLoggedIn !== "true" ||
-            !currentUser
-        ) {
-
-            window.location.href =
-                "login.html";
-
+        if (isLoggedIn !== "true" || !currentUser) {
+            window.location.replace("login.html");
         }
 
+        const API_URL = "http://localhost:5000/api/resumes";
+
+        async function selectTemplate(templateName, button) {
+            const token = sessionStorage.getItem("token");
+            const resumeId = sessionStorage.getItem("jobVaultResumeId");
+
+            if (!token) {
+                alert("Your login session has expired. Please log in again.");
+                window.location.href = "login.html";
+                return;
+            }
+
+            if (!resumeId) {
+                alert("Please save your resume information first.");
+                window.location.href = "resume_input.html";
+                return;
+            }
+
+            const originalText = button.textContent.trim();
+            button.disabled = true;
+            button.textContent = "Saving...";
+
+            try {
+                const response = await fetch(`${API_URL}/${resumeId}`, {
+                    method: "PUT",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Bearer ${token}`
+                    },
+                    body: JSON.stringify({
+                        template: templateName
+                    })
+                });
+
+                const result = await response.json();
+
+                if (!response.ok) {
+                    throw new Error(result.message || "Unable to save the template.");
+                }
+
+                sessionStorage.setItem("selectedResumeTemplate", templateName);
+
+                window.location.href = `${templateName}.html`;
+            } catch (error) {
+                console.error("Template selection error:", error);
+                alert(error.message || "Could not save your template choice. Check your backend.");
+                button.disabled = false;
+                button.textContent = originalText;
+            }
+        }
 
         function handleLogout() {
+            [
+                "currentUser",
+                "isLoggedIn",
+                "showWelcome",
+                "token",
+                "jobVaultResumeId",
+                "selectedResumeTemplate"
+            ].forEach(key => sessionStorage.removeItem(key));
 
-            sessionStorage.removeItem("currentUser");
-
-            sessionStorage.removeItem("isLoggedIn");
-
-            sessionStorage.removeItem("showWelcome");
-
-            window.location.href =
-                "index.html";
-
+            window.location.href = "index.html";
         }
-
     </script>
 
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
-    </script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

@@ -288,6 +288,12 @@
                             </a>
                         </li>
 
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="my_resumes.html">
+                                My Resumes
+                            </a>
+                        </li>
+
                     </ul>
 
                     <div class="d-flex">
@@ -646,11 +652,7 @@
         const isLoggedIn = sessionStorage.getItem("isLoggedIn");
         const showWelcome = sessionStorage.getItem("showWelcome");
 
-        const token =
-            sessionStorage.getItem("token") ||
-            sessionStorage.getItem("authToken") ||
-            localStorage.getItem("token") ||
-            localStorage.getItem("authToken");
+        const token = sessionStorage.getItem("token");
 
         const API_URL = "http://localhost:5000/api/applications";
 

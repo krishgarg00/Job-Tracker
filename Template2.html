@@ -280,14 +280,8 @@
                 JobVault
             </a>
 
-            <button
-                class="navbar-toggler"
-                type="button"
-                data-bs-toggle="collapse"
-                data-bs-target="#navbarContent"
-                aria-controls="navbarContent"
-                aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
 
                 <span class="navbar-toggler-icon"></span>
 
@@ -325,9 +319,7 @@
 
                 <div class="d-flex">
 
-                    <button
-                        class="btn btn-outline-light btn-sm px-3"
-                        onclick="handleLogout()">
+                    <button class="btn btn-outline-light btn-sm px-3" onclick="handleLogout()">
 
                         Logout
 
@@ -491,78 +483,43 @@
                 .replace(/'/g, "&#039;");
         }
 
-        function getResumeData() {
-            const savedData =
-                localStorage.getItem("jobVaultResume");
+        async function getResumeData() {
+            const token = sessionStorage.getItem("token");
+            const resumeId = sessionStorage.getItem("jobVaultResumeId");
 
-            if (!savedData) {
-                return {};
+            if (!token || !resumeId) {
+                throw new Error("Resume session missing. Please reopen My Resumes.");
             }
 
-            const data = JSON.parse(savedData);
+            const response = await fetch(
+                `http://localhost:5000/api/resumes/${resumeId}`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${token}`
+                    }
+                }
+            );
 
-            const phones =
-                Array.isArray(data.phones)
-                    ? data.phones.filter(Boolean)
-                    : data.phone
-                        ? [data.phone]
-                        : [];
+            const result = await response.json();
 
-            const education =
-                Array.isArray(data.education)
-                    ? data.education
-                    : data.college || data.degree || data.graduationYear
-                        ? [{
-                            college: data.college || "",
-                            degree: data.degree || "",
-                            graduationYear: data.graduationYear || ""
-                        }]
-                        : [];
+            if (!response.ok || !result.resume) {
+                throw new Error(result.message || "Could not load resume.");
+            }
 
-            const experience =
-                Array.isArray(data.experience)
-                    ? data.experience
-                    : data.company || data.jobRole || data.experienceDuration
-                        ? [{
-                            company: data.company || "",
-                            jobRole: data.jobRole || "",
-                            duration: data.experienceDuration || ""
-                        }]
-                        : [];
-
-            const skills =
-                Array.isArray(data.skillsList)
-                    ? data.skillsList.filter(Boolean)
-                    : Array.isArray(data.skills)
-                        ? data.skills.filter(Boolean)
-                        : data.skills
-                            ? String(data.skills)
-                                .split(",")
-                                .map(skill => skill.trim())
-                                .filter(Boolean)
-                            : [];
-
-            const projects =
-                Array.isArray(data.projectList)
-                    ? data.projectList
-                    : Array.isArray(data.projects)
-                        ? data.projects
-                        : data.projects
-                            ? [{
-                                name: "",
-                                details: data.projects
-                            }]
-                            : [];
+            const resume = result.resume;
+            const personal = resume.personalInfo || {};
 
             return {
-                fullName: data.fullName || "",
-                email: data.email || "",
-                linkedin: data.linkedin || "",
-                phones,
-                education,
-                experience,
-                skills,
-                projects
+                fullName: personal.fullName || "",
+                email: personal.email || "",
+                linkedin: personal.linkedin || "",
+                phones: personal.phone
+                    ? personal.phone.split(",").map(p => p.trim()).filter(Boolean)
+                    : [],
+                education: resume.education || [],
+                experience: resume.experience || [],
+                skills: resume.skills || [],
+                projects: resume.projects || []
             };
         }
 
@@ -703,31 +660,34 @@
                                 ${escapeHtml(name)}
                             </div>
 
-                            ${
-                                details
-                                    ? `
+                            ${details
+                            ? `
                                         <div class="resume-content">
                                             ${escapeHtml(details)
-                                                .replace(/\n/g, "<br>")}
+                                .replace(/\n/g, "<br>")}
                                         </div>
                                     `
-                                    : ""
-                            }
+                            : ""
+                        }
 
                         </div>
                     `;
                 }).join("");
         }
 
-        function renderResume() {
-            const data =
-                getResumeData();
+        async function renderResume() {
+            try {
+                const data = await getResumeData();
 
-            renderPersonal(data);
-            renderExperience(data.experience);
-            renderEducation(data.education);
-            renderSkills(data.skills);
-            renderProjects(data.projects);
+                renderPersonal(data);
+                renderEducation(data.education);
+                renderExperience(data.experience);
+                renderSkills(data.skills);
+                renderProjects(data.projects);
+            } catch (error) {
+                console.error("Resume preview error:", error);
+                alert(error.message);
+            }
         }
 
         function downloadResume() {
