@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api/applications";
+const API_URL = "https://job-tracker-d40a.onrender.com/api/applications";
 
 let editingApplicationId = null;
 

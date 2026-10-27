@@ -8,7 +8,7 @@ if (isLoggedIn !== "true" || !currentUser) {
     window.location.replace("login.html");
 }
 
-const API_URL = "http://localhost:5000/api/resumes";
+const API_URL = "https://job-tracker-d40a.onrender.com/api/resumes";
 
 async function selectTemplate(templateName, button) {
     const token = sessionStorage.getItem("token");

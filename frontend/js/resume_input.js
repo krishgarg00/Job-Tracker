@@ -6,7 +6,7 @@ const currentUser = JSON.parse(
 );
 
 const isLoggedIn = sessionStorage.getItem("isLoggedIn");
-const API_URL = "http://localhost:5000/api/resumes";
+const API_URL = "https://job-tracker-d40a.onrender.com/api/resumes";
 
 if (isLoggedIn !== "true" || !currentUser) {
     window.location.href = "login.html";

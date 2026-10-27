@@ -8,7 +8,7 @@ async function getData() {
     }
 
     const response = await fetch(
-        `http://localhost:5000/api/resumes/${resumeId}`,
+        `https://job-tracker-d40a.onrender.com/api/resumes/${resumeId}`,
         {
             headers: {
                 Authorization: `Bearer ${token}`

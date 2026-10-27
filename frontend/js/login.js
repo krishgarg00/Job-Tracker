@@ -1,7 +1,7 @@
 const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://job-tracker-d40a.onrender.com/api/auth";
 
 const handleLogin = async (event) => {
     event.preventDefault();

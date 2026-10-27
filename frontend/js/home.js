@@ -17,7 +17,7 @@ const showWelcome = sessionStorage.getItem("showWelcome");
 
 const token = sessionStorage.getItem("token");
 
-const API_URL = "http://localhost:5000/api/applications";
+const API_URL = "https://job-tracker-d40a.onrender.com/api/applications";
 
 if (isLoggedIn !== "true" || !currentUser || !token) {
     window.location.href = "login.html";

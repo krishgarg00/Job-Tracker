@@ -3,7 +3,7 @@ const emailInput = document.getElementById("email");
 const passwordInput = document.getElementById("password");
 const confirmPasswordInput = document.getElementById("confirmPassword");
 
-const API_URL = "http://localhost:5000/api/auth";
+const API_URL = "https://job-tracker-d40a.onrender.com/api/auth";
 
 const handleSubmit = async (event) => {
     event.preventDefault();
