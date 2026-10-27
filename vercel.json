@@ -1,0 +1,69 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "rewrites": [
+    {
+      "source": "/",
+      "destination": "/frontend/pages/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/frontend/pages/index.html"
+    },
+    {
+      "source": "/css/:path*",
+      "destination": "/frontend/css/:path*"
+    },
+    {
+      "source": "/js/:path*",
+      "destination": "/frontend/js/:path*"
+    },
+    {
+      "source": "/assets/:path*",
+      "destination": "/frontend/assets/:path*"
+    },
+    {
+      "source": "/pages/:path*",
+      "destination": "/frontend/pages/:path*"
+    },
+    {
+      "source": "/template1",
+      "destination": "/frontend/pages/Template1.html"
+    },
+    {
+      "source": "/template1.html",
+      "destination": "/frontend/pages/Template1.html"
+    },
+    {
+      "source": "/template2",
+      "destination": "/frontend/pages/Template2.html"
+    },
+    {
+      "source": "/template2.html",
+      "destination": "/frontend/pages/Template2.html"
+    },
+    {
+      "source": "/template3",
+      "destination": "/frontend/pages/Template3.html"
+    },
+    {
+      "source": "/template3.html",
+      "destination": "/frontend/pages/Template3.html"
+    },
+    {
+      "source": "/template4",
+      "destination": "/frontend/pages/Template4.html"
+    },
+    {
+      "source": "/template4.html",
+      "destination": "/frontend/pages/Template4.html"
+    },
+    {
+      "source": "/:page.html",
+      "destination": "/frontend/pages/:page.html"
+    },
+    {
+      "source": "/:page((?!css|js|assets|pages|frontend|backend)[^/.]+)",
+      "destination": "/frontend/pages/:page.html"
+    }
+  ]
+}

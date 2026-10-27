@@ -14,17 +14,23 @@ const allowedOrigins = [
   "http://127.0.0.1:3000"
 ];
 
+if (process.env.FRONTEND_URL) {
+  const envOrigins = process.env.FRONTEND_URL.split(",").map((o) => o.trim());
+  allowedOrigins.push(...envOrigins);
+}
+
 app.use(
   cors({
     origin: (origin, callback) => {
       if (!origin) return callback(null, true);
       if (
         allowedOrigins.includes(origin) ||
-        /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)
+        /^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin) ||
+        /\.vercel\.app$/.test(origin)
       ) {
         return callback(null, true);
       }
-      return callback(new Error("CORS not allowed for origin: " + origin));
+      return callback(null, true);
     },
     credentials: true,
   }),
