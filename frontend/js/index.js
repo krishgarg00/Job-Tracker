@@ -1,4 +1,3 @@
-
 document.addEventListener("DOMContentLoaded", () => {
   const currentUser = sessionStorage.getItem("currentUser");
   const isLoggedIn = sessionStorage.getItem("isLoggedIn");

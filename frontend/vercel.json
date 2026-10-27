@@ -1,10 +1,53 @@
-
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
       "source": "/",
       "destination": "/pages/index.html"
+    },
+    {
+      "source": "/index.html",
+      "destination": "/pages/index.html"
+    },
+    {
+      "source": "/template1",
+      "destination": "/pages/Template1.html"
+    },
+    {
+      "source": "/template1.html",
+      "destination": "/pages/Template1.html"
+    },
+    {
+      "source": "/template2",
+      "destination": "/pages/Template2.html"
+    },
+    {
+      "source": "/template2.html",
+      "destination": "/pages/Template2.html"
+    },
+    {
+      "source": "/template3",
+      "destination": "/pages/Template3.html"
+    },
+    {
+      "source": "/template3.html",
+      "destination": "/pages/Template3.html"
+    },
+    {
+      "source": "/template4",
+      "destination": "/pages/Template4.html"
+    },
+    {
+      "source": "/template4.html",
+      "destination": "/pages/Template4.html"
+    },
+    {
+      "source": "/:page.html",
+      "destination": "/pages/:page.html"
+    },
+    {
+      "source": "/:page((?!css|js|assets|pages)[^/.]+)",
+      "destination": "/pages/:page.html"
     }
   ]
 }
