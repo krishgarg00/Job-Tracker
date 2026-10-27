@@ -1,0 +1,232 @@
+body {
+    background: #f8f8f8;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-top: 72px;
+}
+
+main {
+    flex: 1;
+}
+
+.navbar {
+    min-height: 72px;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    background: #000 !important;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    letter-spacing: 1px;
+}
+
+.nav-link {
+    font-size: 14px;
+    margin: 0 7px;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.navbar .btn {
+    border-radius: 8px;
+}
+
+.hero {
+    padding: 60px 0 40px;
+}
+
+.hero h1 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.hero p {
+    color: #777;
+}
+
+.stat-card {
+    border: none;
+    border-radius: 15px;
+    transition: transform 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-3px);
+}
+
+.stat-number {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: #777;
+    font-size: 14px;
+}
+
+.application-card {
+    border: none;
+    border-radius: 15px;
+}
+
+.btn-dark,
+.btn-outline-dark {
+    border-radius: 8px;
+}
+
+.status-summary-item {
+    padding: 8px 0;
+}
+
+.status-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.status-dot-applied {
+    background: #ffc107;
+}
+
+.status-dot-interview {
+    background: #0d6efd;
+}
+
+.status-dot-offer {
+    background: #198754;
+}
+
+.status-dot-rejected {
+    background: #dc3545;
+}
+
+.status-progress {
+    height: 7px;
+    border-radius: 10px;
+    background: #eeeeee;
+}
+
+.status-progress .progress-bar {
+    border-radius: 10px;
+}
+
+.status-insight {
+    background: #f8f8f8;
+    border: 1px solid #eeeeee;
+    border-radius: 12px;
+    padding: 16px;
+}
+
+.recent-application {
+    padding: 18px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.recent-application:last-child {
+    border-bottom: none;
+}
+
+.recent-company {
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.recent-position {
+    color: #777;
+    font-size: 14px;
+}
+
+.recent-date {
+    color: #777;
+    font-size: 13px;
+}
+
+.status-badge {
+    padding: 6px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.status-applied {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.status-interview {
+    background-color: #cfe2ff;
+    color: #084298;
+}
+
+.status-offer {
+    background-color: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-rejected {
+    background-color: #f8d7da;
+    color: #842029;
+}
+
+footer {
+    background: #000;
+    color: white;
+    padding: 45px 0 25px;
+    margin-top: 0;
+}
+
+.footer-brand {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-text {
+    color: #777;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.footer-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 20px;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+.copyright {
+    color: #666;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 72px;
+    }
+
+    .hero {
+        padding-top: 35px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .footer-link {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+}

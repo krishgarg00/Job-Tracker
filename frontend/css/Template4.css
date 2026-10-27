@@ -1,0 +1,281 @@
+* {
+    box-sizing: border-box
+}
+
+body {
+    margin: 0;
+    background: #f8f8f8;
+    color: #111;
+    min-height: 100vh;
+    padding-top: 72px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.navbar {
+    min-height: 72px;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    background: #000 !important
+}
+
+.navbar-brand {
+    font-size: 22px;
+    letter-spacing: 1px
+}
+
+.nav-link {
+    font-size: 14px;
+    margin: 0 7px
+}
+
+.nav-link:hover {
+    opacity: .7
+}
+
+.navbar .btn {
+    border-radius: 8px
+}
+
+.resume-container {
+    padding: 45px 15px 30px
+}
+
+.resume-paper {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .08)
+}
+
+.resume-sidebar {
+    background: #000;
+    color: #fff;
+    padding: 40px 30px
+}
+
+.sidebar-name {
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 1.2;
+    word-break: break-word
+}
+
+.sidebar-role {
+    margin-top: 10px;
+    color: #bdbdbd;
+    font-size: 14px;
+    line-height: 1.5
+}
+
+.sidebar-section {
+    margin-top: 35px
+}
+
+.sidebar-title {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #555;
+    margin-bottom: 15px
+}
+
+.sidebar-contact {
+    font-size: 13px;
+    color: #d0d0d0;
+    line-height: 1.7;
+    word-break: break-word
+}
+
+.sidebar-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px
+}
+
+.skill-entry {
+    font-size: 12px;
+    color: #111;
+    background: #fff;
+    border-radius: 4px;
+    padding: 5px 8px
+}
+
+.resume-content {
+    padding: 40px 45px
+}
+
+.content-section {
+    margin-bottom: 35px;
+    break-inside: avoid
+}
+
+.content-section:last-child {
+    margin-bottom: 0
+}
+
+.content-title {
+    font-size: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.content-title::before {
+    content: "";
+    display: inline-block;
+    width: 6px;
+    height: 22px;
+    background: #000
+}
+
+.resume-entry {
+    border-left: 2px solid #ddd;
+    padding-left: 18px;
+    margin-bottom: 22px;
+    break-inside: avoid;
+    line-height: 1.55
+}
+
+.resume-entry:last-child {
+    margin-bottom: 0
+}
+
+.content-subtitle {
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.4
+}
+
+.content-muted {
+    color: #777;
+    font-size: 14px;
+    margin-top: 3px
+}
+
+.project-text {
+    line-height: 1.7;
+    font-size: 14px;
+    color: #333;
+    white-space: pre-line
+}
+
+.action-buttons {
+    max-width: 900px;
+    margin: 20px auto 0
+}
+
+.action-buttons .btn {
+    border-radius: 8px
+}
+
+footer {
+    background: #000;
+    color: #fff;
+    padding: 45px 0 25px
+}
+
+.footer-brand {
+    font-size: 20px;
+    font-weight: 700
+}
+
+.footer-text {
+    color: #777;
+    font-size: 13px;
+    margin-top: 8px
+}
+
+.footer-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 20px
+}
+
+.footer-link:hover {
+    color: #fff
+}
+
+.copyright {
+    color: #666;
+    font-size: 12px;
+    margin-top: 30px
+}
+
+@media(max-width:768px) {
+    .resume-container {
+        padding: 20px 10px
+    }
+
+    .resume-paper {
+        grid-template-columns: 1fr
+    }
+
+    .resume-sidebar {
+        padding: 30px 25px
+    }
+
+    .resume-content {
+        padding: 30px 25px
+    }
+
+    .sidebar-name {
+        font-size: 28px
+    }
+
+    .footer-link {
+        margin-left: 0;
+        margin-right: 15px
+    }
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 12mm
+    }
+
+    body {
+        background: #fff;
+        padding-top: 0
+    }
+
+    nav,
+    footer,
+    .action-buttons {
+        display: none !important
+    }
+
+    .resume-container {
+        padding: 0
+    }
+
+    .resume-paper {
+        max-width: none;
+        border-radius: 0;
+        box-shadow: none !important
+    }
+
+    .resume-sidebar {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact
+    }
+
+    .resume-entry,
+    .content-section {
+        break-inside: avoid
+    }
+}

@@ -1,0 +1,254 @@
+/* ==========================================================================
+   JobVault - Common Stylesheet
+   Unified base styles, layout, navigation, footer, buttons, and form controls
+   ========================================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+body {
+    margin: 0;
+    padding-top: 72px;
+    background: #f8f8f8;
+    color: #111;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+/* ==========================================================================
+   Navbar
+   ========================================================================== */
+
+.navbar {
+    min-height: 72px;
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030;
+    background: #000 !important;
+}
+
+.navbar-brand {
+    font-size: 22px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    color: #fff !important;
+}
+
+.nav-link {
+    font-size: 14px;
+    margin: 0 7px;
+    color: #fff !important;
+    transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+.nav-link.active {
+    font-weight: 700;
+    opacity: 1;
+}
+
+.navbar .btn {
+    border-radius: 8px;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+    border-radius: 8px;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-dark {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.btn-dark:hover,
+.btn-dark:focus {
+    background-color: #222;
+    border-color: #222;
+    color: #fff;
+}
+
+.btn-outline-dark {
+    border-color: #000;
+    color: #000;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.btn-light {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+}
+
+.btn-outline-light {
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-outline-light:hover,
+.btn-outline-light:focus {
+    background-color: #fff;
+    border-color: #fff;
+    color: #000;
+}
+
+/* ==========================================================================
+   Form Controls
+   ========================================================================== */
+
+.form-control,
+.form-select {
+    border-radius: 8px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #000;
+    box-shadow: 0 0 0 0.15rem rgba(0, 0, 0, 0.1);
+}
+
+/* ==========================================================================
+   Cards
+   ========================================================================== */
+
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+/* ==========================================================================
+   Status Badges
+   ========================================================================== */
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.status-applied {
+    background: #fff3cd;
+    color: #664d03;
+}
+
+.status-interview {
+    background: #cfe2ff;
+    color: #084298;
+}
+
+.status-offer {
+    background: #d1e7dd;
+    color: #0f5132;
+}
+
+.status-rejected {
+    background: #f8d7da;
+    color: #842029;
+}
+
+.status-default {
+    background: #e9ecef;
+    color: #495057;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+footer {
+    background: #000;
+    color: white;
+    padding: 45px 0 25px;
+    margin-top: auto;
+}
+
+.footer-brand {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.footer-text {
+    color: #777;
+    font-size: 13px;
+    margin-top: 8px;
+}
+
+.footer-link {
+    color: #aaa;
+    text-decoration: none;
+    font-size: 13px;
+    margin-left: 20px;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: white;
+}
+
+.copyright {
+    color: #666;
+    font-size: 12px;
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .footer-link {
+        margin-left: 0;
+        margin-right: 15px;
+    }
+}
+
+/* ==========================================================================
+   Utility Classes & Print Styles
+   ========================================================================== */
+
+.hidden {
+    display: none !important;
+}
+
+@media print {
+    .navbar,
+    footer,
+    .action-buttons,
+    .resume-actions,
+    .btn,
+    .modal {
+        display: none !important;
+    }
+
+    body {
+        padding-top: 0 !important;
+        background: #fff !important;
+    }
+}
