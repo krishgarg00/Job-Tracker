@@ -1,35 +1,39 @@
-let currentUser = sessionStorage.getItem("currentUser");
-let isLoggedIn = sessionStorage.getItem("isLoggedIn");
+document.addEventListener("DOMContentLoaded", () => {
+  const currentUser = sessionStorage.getItem("currentUser");
+  const isLoggedIn = sessionStorage.getItem("isLoggedIn");
 
-let applicationsNav = document.getElementById("applicationsNav");
-let dashboardNav = document.getElementById("dashboardNav");
-let authButtons = document.getElementById("authButtons");
-let logoutButton = document.getElementById("logoutButton");
-let applicationsFooterLink = document.getElementById("applicationsFooterLink");
-let getStartedButton = document.getElementById("getStartedButton");
-let startTrackingButton = document.getElementById("startTrackingButton");
+  const applicationsNav = document.getElementById("applicationsNav");
+  const dashboardNav = document.getElementById("dashboardNav");
+  const authButtons = document.getElementById("authButtons");
+  const logoutButton = document.getElementById("logoutButton");
+  const applicationsFooterLink = document.getElementById("applicationsFooterLink");
+  const getStartedButton = document.getElementById("getStartedButton");
+  const startTrackingButton = document.getElementById("startTrackingButton");
 
-if (isLoggedIn === "true" && currentUser) {
-  applicationsNav.style.display = "block";
-  dashboardNav.style.display = "block";
+  const loggedIn = isLoggedIn === "true" && Boolean(currentUser);
 
-  authButtons.classList.add("hidden");
-  logoutButton.classList.remove("d-none");
+  if (applicationsNav) applicationsNav.style.display = loggedIn ? "block" : "none";
+  if (dashboardNav) dashboardNav.style.display = loggedIn ? "block" : "none";
+  if (applicationsFooterLink) {
+    applicationsFooterLink.style.display = loggedIn ? "inline" : "none";
+  }
 
-  applicationsFooterLink.style.display = "inline";
-  getStartedButton.href = "home.html";
-  startTrackingButton.href = "home.html";
-} else {
-  applicationsNav.style.display = "none";
-  dashboardNav.style.display = "none";
+  if (authButtons) {
+    authButtons.classList.toggle("hidden", loggedIn);
+  }
 
-  authButtons.classList.remove("hidden");
-  logoutButton.classList.add("d-none");
+  if (logoutButton) {
+    logoutButton.classList.toggle("d-none", !loggedIn);
+  }
 
-  applicationsFooterLink.style.display = "none";
-  getStartedButton.href = "signup.html";
-  startTrackingButton.href = "signup.html";
-}
+  if (getStartedButton) {
+    getStartedButton.href = loggedIn ? "home.html" : "signup.html";
+  }
+
+  if (startTrackingButton) {
+    startTrackingButton.href = loggedIn ? "home.html" : "signup.html";
+  }
+});
 
 function logout() {
   sessionStorage.removeItem("currentUser");
@@ -39,5 +43,5 @@ function logout() {
   sessionStorage.removeItem("jobVaultResumeId");
   sessionStorage.removeItem("selectedResumeTemplate");
 
-  window.location.href = "index.html";
+  window.location.href = "/";
 }
